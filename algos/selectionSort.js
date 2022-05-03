@@ -43,10 +43,10 @@ function selectionSort(nums) {
                 largest = j;
             }
             if (j === nums.length-i-1){
-                // [nums[largest], nums[j]] = [nums[j], nums[largest]]
-                temp = nums[largest];
-                nums[largest] = nums[j];
-                nums[j] = temp;
+                [nums[largest], nums[j]] = [nums[j], nums[largest]]
+                // temp = nums[largest];
+                // nums[largest] = nums[j];
+                // nums[j] = temp;
             }
         }
         // SWAP THE LARGEST INDEX WITH THE END OF THE UNSORTED SECTION OF ARRAY
