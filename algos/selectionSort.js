@@ -42,15 +42,15 @@ function selectionSort(nums) {
             if(nums[largest] < nums[j]){
                 largest = j;
             }
-            if (j === nums.length-i-1){
-                [nums[largest], nums[j]] = [nums[j], nums[largest]]
+            // if (j === nums.length-i-1){
                 // temp = nums[largest];
                 // nums[largest] = nums[j];
                 // nums[j] = temp;
-            }
+            // }
         }
         // SWAP THE LARGEST INDEX WITH THE END OF THE UNSORTED SECTION OF ARRAY
-        console.log(nums)
+        console.log(nums);
+        [nums[largest], nums[nums.length-i-1]] = [nums[nums.length-i-1], nums[largest]];
     }
     return nums;
 }
