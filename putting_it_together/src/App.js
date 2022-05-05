@@ -30,9 +30,9 @@ class App extends Component{
     return (
       <div class="person">
         <Display firstName="Jane" lastName="Doe" age={this.state.clicked+45} haircolor="Black"/>
-        <button onClick={this.clickHandler}>Birthday Button</button>
+        <button onClick={this.clickHandler}>Birthday Button for Jane Doe</button>
         <Display firstName="John" lastName="Smith" age={this.state.clicked_2+88} haircolor="Brown"/>
-        <button onClick={this.clickHandler_2}>Birthday Button</button>
+        <button onClick={this.clickHandler_2}>Birthday Button for John Smith</button>
       </div>
     );
   }
