@@ -28,7 +28,7 @@ class App extends Component{
 
   render() {
     return (
-      <div class="person">
+      <div className="person">
         <Display firstName="Jane" lastName="Doe" age={this.state.clicked+45} haircolor="Black"/>
         <button onClick={this.clickHandler}>Birthday Button for Jane Doe</button>
         <Display firstName="John" lastName="Smith" age={this.state.clicked_2+88} haircolor="Brown"/>
