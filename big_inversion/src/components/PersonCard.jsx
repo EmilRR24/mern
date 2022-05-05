@@ -4,9 +4,6 @@ import React from 'react'
 //JS BETTER SUITED FOR FUNCATIONAL OVER CLASS COMPONENETS
 // CREATE THE COMPONENT
 const PersonCard = (props) => {
-
-    const {firstName, lastName, age, haircolor} = props
-
     return (
         <div>
             <h1>{props.lastName}, {props.firstName}</h1>
