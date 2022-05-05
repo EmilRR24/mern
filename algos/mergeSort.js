@@ -51,7 +51,6 @@ function merge(left, right) {
     // CREATE A LEFT AND RIGHT INDEX
     let leftInd = 0
     let rightInd = 0
-    let biggestArr = left > right
     // START COMPARING THE VALUES FROM THE TWO ARRAYS
     if (left.length < 1 && right.length < 1) {
         return newArr
