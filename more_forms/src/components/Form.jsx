@@ -86,7 +86,7 @@ const Form = (props) => {
     const confirmHandler = (event) => {
         setConfirm(event.target.value)
         // PASSWORD MUST MATCH
-        if(event.target.value != password) {
+        if(event.target.value !== password) {
             setConfirmError("PASSWORD MUST MATCH")
         }
         // VALIDATION PASS, CLEAR ERROR MESSAGE
