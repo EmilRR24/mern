@@ -18,16 +18,16 @@ function App() {
   // CREATE A FUNCTION THAT HANDLES ADDING A COLOR
   const addColor = (newColor) => {
     // ADD newColor TO THE LIST OF COLORS
-    setColors([...colors, newColor])
+    setColors([...colors, newColor,])
   }
+
 
   return (
     <fieldset>
-      <legend>App.js</legend>
       {/* {
         users.map( (person, index) => <PersonCard key={index} user={person} /> )
       } */}
-      <Form addColor={addColor}/>
+      <Form addColor={addColor} />
       <Display allColors={colors}/>
     </fieldset>
   );

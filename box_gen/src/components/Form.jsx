@@ -4,18 +4,23 @@ const Form = (props) => {
 
     const [color,setColor] = useState("")
 
+
     const submitHandler = (event) => {
         event.preventDefault()
-        props.addColor(color)
+        props.addColor(color)   
+        setColor("")      
+    }
+
+    const changeHandler = (event) => {
+        setColor(event.target.value)
     }
 
     return (
-        <fieldset>
-            <legend>Form.jsx</legend>
+        <fieldset style={{textAlign: 'center'}}>
             <form onSubmit={submitHandler}>
                 <p>
                     Color:
-                    <input onChange={(e)=> setColor(e.target.value)} type="text" name="" id=""/>
+                    <input onChange={changeHandler} type="text" name="color" value={color}/>
                 </p>
                 <button>Add</button>
             </form>

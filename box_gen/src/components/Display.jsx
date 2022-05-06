@@ -5,18 +5,19 @@ const Display = (props) => {
     const{allColors} = props
 
     return (
-        <fieldset>
-            <legend>Display.jsx</legend>
-            {
+        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
+            {/* <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', height:'auto', width:'auto'}}> */}
+            {   
                 allColors.map((color, index) => {
                     return (
-                        <div key={index} style={{backgroundColor:"{{color}}",width:"50px", height:"50px"}}>    
-                            {color}
+                        <div key={index}>    
+                        <p style={{backgroundColor: color,width:"150px", height:"150px"}}></p> 
                         </div>
                     )
                 } )
             }
-        </fieldset>
+            {/* </div> */}
+        </div>
     )
 }
 

@@ -9,11 +9,11 @@ const Form = (props) => {
     const [confirm,setConfirm] = useState("");
 
     //STATE FOR KEEPING TRACK OF VALIDATIONS
-    const [firstNameError, setFirstNameError] = useState("")
-    const [lastNameError, setLastNameError] = useState("")
-    const [emailError, setEmailError] = useState("")
-    const [passwordError, setPasswordError] = useState("")
-    const [confirmError, setConfirmError] = useState("")
+    const [firstNameError, setFirstNameError] = useState("");
+    const [lastNameError, setLastNameError] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [confirmError, setConfirmError] = useState("");
 
 
     const firstNameHandler = (event) => {
@@ -54,8 +54,8 @@ const Form = (props) => {
         setEmail(event.target.value)
         if(event.target.value.length > 0){
             // EMAIL MUST BE LONGER THAN 2 CHARS
-            if(event.target.value.length < 2) {
-                setEmailError("EMAIL MUST BE LONGER THAN 2 CHARACTERS")
+            if(event.target.value.length < 5) {
+                setEmailError("EMAIL MUST BE LONGER THAN 5 CHARACTERS")
             }
             else {
                 setEmailError("")
