@@ -39,11 +39,11 @@ const Form_functional = (props) => {
 
     const lastNameHandler = (event) => {
         setLastName(event.target.value)
-        // FLAST NAME MUST BE required
+        // LAST NAME MUST BE required
         if(event.target.value.length < 1){
             setLastNameError("LAST NAME IS REQUIRED")
         }
-        // FLAST NAME MUST BE LONGER THAN 2 CHARS
+        // LAST NAME MUST BE LONGER THAN 2 CHARS
         else if(event.target.value.length < 2) {
             setLastNameError("LAST NAME MUST BE LONGER THAN 2 CHARACTERS")
         }
