@@ -42,8 +42,8 @@ function orderedIntersection(sortedA, sortedB) {
                 j++;
             } else {
             newArr.push(sortedA[i]);
-            i++;
-            j++;
+                i++;
+                j++;
             }
         } 
         else if (sortedA[i] < sortedB[j]) {
