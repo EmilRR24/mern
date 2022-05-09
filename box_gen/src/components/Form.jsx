@@ -19,7 +19,7 @@ const Form = (props) => {
         <fieldset style={{textAlign: 'center'}}>
             <form onSubmit={submitHandler}>
                 <p>
-                    Color:
+                    Color: 
                     <input onChange={changeHandler} type="text" name="color" value={color}/>
                 </p>
                 <button>Add</button>
