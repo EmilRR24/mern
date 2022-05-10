@@ -24,13 +24,11 @@ const Example = (props) => {
       // SUCCESSFUL RESPONSE
       .then(response => {
         console.log("SUCCESS", response.data) 
-        setPokemon(response.data)
+        setPokemon(response.data.results)
       })
       // UNSUCCESSFUL RESPONSE
       .catch(err => console.error("ERROR", err)) 
   };
-
-
 
   return (
     <fieldset style={{textAlign:'center'}}>
@@ -42,11 +40,9 @@ const Example = (props) => {
         /* {pokemon.length > 0 && pokemon.map((poke, index)=>{
           return (<li key={index}>{index}: {poke.name}</li>)
         })} */
-
         pokemon &&
         pokemon.length > 0 && pokemon.map((poke, index)=>{
-          return (<li key={index}>{poke.name}</li>)})
-          
+          return (<li key={index}>{index}: {poke.name}</li>)})
         }
       </div>
     </fieldset>
