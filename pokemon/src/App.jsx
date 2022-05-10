@@ -8,9 +8,14 @@ const Example = (props) => {
 
   const pokemonHandler = () => {
       fetch("https://pokeapi.co/api/v2/pokemon/?limit=807")
-          .then(response => response.json())
-          .then(response => setPeople(response.results))
+        //SUCCESSFUL RESPONSE
+        .then(response => response.json())
+        .then(response => setPeople(response.results))
+        // UNSUCCESSFUL RESPONSE
+        .catch(err => console.error("ERROR", err))
   };
+
+  
 
   return (
     <fieldset style={{textAlign:'center'}}>
