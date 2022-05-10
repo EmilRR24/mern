@@ -9,10 +9,9 @@ const Number = () => {
           {/* ADD A Number */}
           {
           isNaN(num) ? 
-          <h1>The Number is: {num}</h1>
-          : <h1>The word is: {num}</h1>
+          <h1>The Word is: {num}</h1>
+          :  <h1>The Number is: {num}</h1>
           }
-          
       </fieldset>
   )
 }
