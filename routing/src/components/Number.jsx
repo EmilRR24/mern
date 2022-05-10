@@ -3,9 +3,10 @@ import {useParams} from 'react-router-dom'
 
 const Number = () => {
   const {num} = useParams()
+  
   return (
       <fieldset style={{textAlign: 'center'}}>
-          <legend>Number.jsx</legend>
+          <legend>Number or Word.jsx</legend>
           {/* ADD A Number */}
           {
           isNaN(num) ? 

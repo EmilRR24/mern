@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import {useParams} from 'react-router-dom'
 
 const Colored = () => {
-  const {word} = useParams()
-  const {color} = useParams()
-  const {bgColor} = useParams()
+  const {word, color,bgColor} = useParams()
 
     return (
         <fieldset style={{textAlign: 'center'}}>
@@ -14,6 +12,5 @@ const Colored = () => {
         </fieldset>
     )
   }
-
 
 export default Colored
