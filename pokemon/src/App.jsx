@@ -15,7 +15,7 @@ const Example = (props) => {
   return (
     <fieldset style={{textAlign:'center'}}>
       <div>
-        <legend>App.js</legend>
+        {/* <legend>App.js</legend> */}
         <button onClick={pokemonHandler}>Fetch Pokemon</button>
         {people.length > 0 && people.map((person, index)=>{
           return (<li key={index}>{index}: {person.name}</li>)
