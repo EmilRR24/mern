@@ -52,3 +52,4 @@ function diagonalDifference(sqrMatrix) {
     return Math.abs(leftToRight - rightToLeft)
 }
 console.log(diagonalDifference(squareMatrix1))
+console.log(diagonalDifference(squareMatrix2))
