@@ -1,19 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link 
+} from "react-router-dom";
+import Home from './components/Home'
+import Number from './components/Number'
+import Colored from './components/Colored'
 
 function App() {
-  const Num = (props) => {
-    // return (
-
-    // )
-
-  }
   return (
     <BrowserRouter>
-    <h1>Rooting Example</h1>
-    <p>
-
-    </p>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:num" element={<Number />} />
+          <Route path="/:word/:color/:bgColor" element={<Colored />} />
+        </Routes>
     </BrowserRouter>
   );
 }
