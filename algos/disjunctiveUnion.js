@@ -58,18 +58,14 @@ function symmetricDifferences(numsA, numsB) {
     }
     // Iterate through numsA and compare to numsB array
     for (i = 0; i < numsA.length; i++) {
-        if (!numsB.includes(numsA[i])) {
-            if (!newArr.includes(numsA[i])) {
+        if (!numsB.includes(numsA[i]) && !newArr.includes(numsA[i])) {
                 newArr.push(numsA[i]);
-            }
         }
     }
     // Iterate through numsB and compare to numsA array
     for (j = 0; j < numsB.length; j++) {
-        if (!numsA.includes(numsB[j])) {
-            if (!newArr.includes(numsB[j])) {
+        if (!numsA.includes(numsB[j]) && !newArr.includes(numsB[j])) {
                 newArr.push(numsB[j]);
-            }
         }
     }
     // .includes(value)

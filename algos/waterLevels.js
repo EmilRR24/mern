@@ -41,8 +41,7 @@ function measureWaterLevels(waterLevels) {
     let difference = 0;
     for (let i = 0; i < waterLevels.length;i++){
         for(let j = i+1; j < waterLevels.length;j++){
-            if(waterLevels[i] < waterLevels[j]){
-                if(waterLevels[j]-waterLevels[i] > difference)
+            if(waterLevels[i] < waterLevels[j] && waterLevels[j]-waterLevels[i] > difference){
                 difference = waterLevels[j] - waterLevels[i]
             }
         }
