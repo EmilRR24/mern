@@ -38,7 +38,7 @@
   * @returns {number} The max water-level rise amount or -1 if none.
   */
 function measureWaterLevels(waterLevels) {
-    let difference = 0;
+    let difference = -1;
     for (let i = 0; i < waterLevels.length;i++){
         for(let j = i+1; j < waterLevels.length;j++){
             if(waterLevels[i] < waterLevels[j] && waterLevels[j]-waterLevels[i] > difference){
@@ -51,3 +51,7 @@ function measureWaterLevels(waterLevels) {
 console.log(measureWaterLevels(riverLevels1))
 console.log(measureWaterLevels(riverLevels2))
 console.log(measureWaterLevels(riverLevels3))
+console.log(measureWaterLevels(riverLevels4))
+console.log(measureWaterLevels(riverLevels5))
+console.log(measureWaterLevels(riverLevels6))
+console.log(measureWaterLevels(riverLevels7))
