@@ -1,35 +1,32 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import handleSubmit from './Display'
+import { Outlet, useNavigate } from 'react-router'
 
 const Search = () => {
-    const [apiState, setApiState] = useState()
-    
+    const [category, setCategory] = useState('people');
+    const [index, setIndex] = useState();
+    //CALL USE NAVIGATE FUNCTION
+    const navigate = useNavigate()
+
     const handleSubmit = (event) => {
         event.preventDefault();
-    }
-
-    const fetchPeople = () => {
-        axios.get("https://swapi.dev/api/people")
-        .then(response => {
-            console.log("SUCCESS", response.data);
-            setApiState(response.data.results)
-        }, [])
-        .catch(err => {console.log("ERROR", err)})
+        // REDIRECT TO ANOTHER VIEW ON SUBMIT
+        navigate(`/${category}/${index}`)
     }
 
     return (
-        <div>
-            <form action="" onSubmit={(event) => {handleSubmit(event)}}>
+        <div >
+            <form action="" onSubmit={handleSubmit} style={{display: 'flex',justifyContent: 'center'}}>
                 <p>Search For:</p>
-                <select name="category" id="">
+                <select name="category" id="" onChange={(event) => setCategory(event.target.value)}>
                     <option value="people">People</option>
-                    <option value="planet">Planet</option>
+                    <option value="planets">Planet</option>
                 </select>
                 <p>ID: </p>
-                <input type="number" value="index"/>
+                <input type="numbers" onChange={(event) => setIndex(event.target.value)}/>
                 <button>Search</button>
             </form>
+            <Outlet />
         </div>
     )
 }
