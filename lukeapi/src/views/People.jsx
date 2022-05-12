@@ -5,15 +5,17 @@ import {useParams} from 'react-router'
 const People = () => {
     const {index} = useParams()
     const [apiState, setApiState] = useState()
-    const [planet, setPlanet] = useState("")
+    const [planet, setPlanet] = useState()
     const [errMsg, setErrMsg] = useState()
     const [errImg, setErrImg] = useState()
 
     useEffect(() => {
         axios.get(`https://swapi.dev/api/people/${index}`)
         .then(response => {
-            console.log("SUCCESS", response.data)
+            // console.log("SUCCESS", response.data)
             setApiState(response.data)
+            getPlanet(response.data.homeworld)
+
         })
         .catch(err => {
             console.log("ERROR", err)
@@ -23,26 +25,28 @@ const People = () => {
         })
         }, [index])
     
-    // useEffect(()=>{
-    //     axios.get(apiState.homeworld)
-    //     .then(response => {
-    //         setPlanet(response.data)
-    //     })
-    //     .catch(err => {console.log("ERROR", err)})
-    
-    // })
+    const getPlanet = (homeworld) =>{
+        axios.get(homeworld)
+        .then(response => {
+            console.log("SUCCESS", response.data)
+            setPlanet(response.data)
+        })
+        .catch(err => {console.log("ERROR", err)})
+    }
 
     return (
         <div style={{textAlign: 'center'}}>
             {
             (apiState) ? 
+            planet &&
                 <div>
                     <h1>{apiState.name}</h1>
                     <p>Height: {apiState.height}</p>
                     <p>Mass: {apiState.mass}</p>
                     <p>Hair Color: {apiState.hair_color}</p>
                     <p>Skin Color: {apiState.skin_color}</p>
-                    <p>{apiState.homeworld}</p>
+                    <p>Homeworld: {planet.name}</p>
+                    <a href={apiState.homeworld}>{apiState.homeworld}</a>
                 </div>
                 :
                 <p>
