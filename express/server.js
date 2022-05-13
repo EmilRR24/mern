@@ -26,17 +26,17 @@ app.get('/api/superheroes/:id', (req, res) => {
 
 // CREATE
 app.post('/api/superheroes', (req, res) => {
-    res.json({msg: 'Creating A Hero'})
+    res.json({msg: `Creating A Hero: ${req.body.name}`})
 })
 
 // UPDATE
 app.put('/api/superheroes', (req, res) => {
-    res.json({msg: `Updating a Hero ${req.params.id}`})
+    res.json({msg: `Updating a Hero: ${req.params.id}`})
 })
 
 // DELETE
 app.delete('/api/superheroes/:id', (req, res) => {
-    res.json({msg: `Delete A Hero ${req.params.id}`})
+    res.json({msg: `Delete A Hero: ${req.params.id}`})
 })
 
 app.listen(5000, () => console.log("Listening on port 5000"));
