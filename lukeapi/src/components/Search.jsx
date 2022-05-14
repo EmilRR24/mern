@@ -16,7 +16,7 @@ const Search = () => {
 
     return (
         <div >
-            <form action="" onSubmit={handleSubmit} style={{display: 'flex',justifyContent: 'center'}}>
+            <form action="" onSubmit={handleSubmit} style={{display: 'flex',justifyContent: 'center', alignItems: 'center'}}>
                 <p>Search For:</p>
                 <select name="category" id="" onChange={(event) => setCategory(event.target.value)}>
                     <option value="people">People</option>
