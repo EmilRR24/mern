@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 
-const Form = () => {
+const Form = (props) => {
     // DECLARE STATE
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState()
     const [description, setDescription] = useState("")
+    //DESTRUCTURE
+    const {refresh} = props
 
     // HANDLER FUNCTIONS
     const submitHandler = event => {
@@ -20,6 +22,7 @@ const Form = () => {
         axios.post("http://localhost:8000/api/products/new", productObj)
             .then(res => {
                 console.log(res)
+                refresh();
                 setTitle("");
                 setPrice();
                 setDescription("");
