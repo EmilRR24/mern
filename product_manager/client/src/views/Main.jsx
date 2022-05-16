@@ -7,6 +7,7 @@ const Main = () => {
     <div style={{textAlign: 'center'}}>
         {/* <legend>Main.jsx</legend> */}
         <Form />
+        <Dashboard />
     </div>
   )
 }

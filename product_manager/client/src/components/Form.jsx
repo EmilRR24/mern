@@ -4,7 +4,7 @@ import axios from 'axios'
 const Form = () => {
     // DECLARE STATE
     const [title, setTitle] = useState("")
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState()
     const [description, setDescription] = useState("")
 
     // HANDLER FUNCTIONS
@@ -21,7 +21,7 @@ const Form = () => {
             .then(res => {
                 console.log(res)
                 setTitle("");
-                setPrice(0);
+                setPrice();
                 setDescription("");
             })
             .catch(err => console.log(err))

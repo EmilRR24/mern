@@ -19,6 +19,12 @@ module.exports.allProducts = (req,res) => {
         .catch(err => res.json(err))
 }
 
+module.exports.oneProducts = (req,res) => {
+    Product.find({_id: req.params.id})
+        .then(oneProduct => res.json(oneProduct))
+        .catch(err => res.json(err))
+}
+
 // UPDATE
 
 // DELETE
