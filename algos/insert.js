@@ -31,13 +31,18 @@ const expected2 =
  *    columns and values are extracted from columnValuePairs.
  */
 function insert(tableName, columnValuePairs) {
-
+  const kvp = Object.entries(columnValuePairs);
+  const keys = kvp.map( arr => arr[0]);
+  const values = kvp.map( arr => isNaN(arr[1]) ? `'${arr[1]}'` : `${arr[1]}` );
+  return `INSERT INTO ${tableName} (${keys.join(", ")}) VALUES (${values.join(", ")});`
 }
+console.log(insert(table, insertData1))
+console.log(insert(table, insertData2))
 
 /**
  * - Time: O(?).
  * - Space: O(?).
  */
 function insertFunctional(tableName, columnValuePairs) {
-  
+
 }
