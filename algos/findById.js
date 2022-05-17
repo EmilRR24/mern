@@ -70,4 +70,26 @@ const expected3 = null;
 * @param {Array<Object>} collection
 * @returns {?Object} The object that was updated or null if no object found.
 */
-function findByIdAndUpdate(id, updatedVals, collection) { }
+function findByIdAndUpdate(id, updatedVals, collection) {
+  if (!updatedVals) return null
+  // Find Matching Object by id
+  let matchingIndex;
+  collection.forEach( (obj, idx) => {
+      // Update vals in place
+      console.log(`Collection iteration #${idx+1}.`)
+      if (obj.id === id) {
+          console.log("Matching ID found")
+          for (let key in updatedVals) {
+              if (key in obj) {
+                  collection[idx][key] = updatedVals[key]
+              }
+          }
+          matchingIndex = idx;
+      }
+  });
+  // return matching object
+  return collection[matchingIndex] || `No match found for ID: ${id}`
+}
+console.log(findByIdAndUpdate(id1, updateData1, students))
+console.log(findByIdAndUpdate(id2, updateData2, students))
+console.log(findByIdAndUpdate(id3, updateData3, students))
