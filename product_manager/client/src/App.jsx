@@ -1,6 +1,7 @@
 import './App.css';
 import Main from './views/Main';
 import Detail from './views/Detail';
+import Update from './views/Update';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}/>
         <Route path ="/:product_id" element={<Detail />}/>
+        <Route path="/product/:product_id/edit" element={<Update />}/>
       </Routes>
     </BrowserRouter>
   );

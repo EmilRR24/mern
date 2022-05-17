@@ -17,6 +17,18 @@ const Dashboard = (props) => {
             .catch(err => console.error(err));
     },[refreshState]);
 
+    const removeFromDom = product_id => {
+      setProducts(products.filter(product => product._id != product_id));
+    }
+
+    const deleteProduct = (product_id) => {
+      axios.delete('http://localhost:8000/api/products/' + product_id)
+          .then(res => {
+              removeFromDom(product_id)
+          })
+          .catch(err => console.error(err));
+    }
+
   return (
     <fieldset>
         {/* <legend>DashboardComponent.jsx</legend> */}
@@ -28,6 +40,9 @@ const Dashboard = (props) => {
             <Link to={"/" + product._id}>
             <p>{product.title}</p>
             </Link>
+            <button onClick={(e)=>{deleteProduct(product._id)}}>
+              Delete
+            </button>
             </div>
           )})
         }
