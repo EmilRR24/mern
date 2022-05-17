@@ -18,9 +18,9 @@ app.use(express.urlencoded({extended:true}))
 
 
 // 3. ATTACH ROUTES TO YOUR EXPRESS SERVER
-// require("./routes/book.route")(app)
-const bookRoutes = require("./routes/product.route")
-bookRoutes(app)
+// require("./routes/product.route")(app)
+const productRoutes = require("./routes/product.route")
+productRoutes(app)
 
 
 // 4. RUN YOUR EXPRESS SERVER

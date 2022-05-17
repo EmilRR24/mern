@@ -14,7 +14,7 @@ const Main = () => {
     <div style={{textAlign: 'center'}}>
         {/* <legend>Main.jsx</legend> */}
         <Form refresh={refresh}/>
-        <Dashboard refreshState={refreshState}/>
+        <Dashboard refresh={refresh} refreshState={refreshState}/>
     </div>
   )
 }

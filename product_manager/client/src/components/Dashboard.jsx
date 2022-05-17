@@ -4,27 +4,22 @@ import {Link} from 'react-router-dom'
 
 const Dashboard = (props) => {
     const [products, setProducts] = useState([]);
-    const [loaded, setLoaded] = useState(false);
     // DESTRUCTURE
-    const {refreshState} = props
+    const {refreshState, refresh} = props
 
     useEffect(()=>{
         axios.get('http://localhost:8000/api/products')
             .then(res=>{
                 setProducts(res.data);
-                setLoaded(true);
             })
             .catch(err => console.error(err));
     },[refreshState]);
 
-    const removeFromDom = product_id => {
-      setProducts(products.filter(product => product._id != product_id));
-    }
-
-    const deleteProduct = (product_id) => {
+    const deleteHandler = (product_id) => {
       axios.delete('http://localhost:8000/api/products/' + product_id)
-          .then(res => {
-              removeFromDom(product_id)
+          .then(res=>{
+            console.log("Deleted")
+            refresh()
           })
           .catch(err => console.error(err));
     }
@@ -38,9 +33,12 @@ const Dashboard = (props) => {
           return (
             <div key={index}>
             <Link to={"/" + product._id}>
-            <p>{product.title}</p>
+            <h2>{product.title}</h2>
             </Link>
-            <button onClick={(e)=>{deleteProduct(product._id)}}>
+            <Link to={"/" + product._id + "/edit"}>
+            <p>Edit</p>
+            </Link>
+            <button onClick={(e)=>{deleteHandler(product._id)}}>
               Delete
             </button>
             </div>
