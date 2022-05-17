@@ -7,10 +7,12 @@ module.exports.test = (req,res) => {
 // CREATE
 module.exports.create =  (req,res) => {
     Product.create(req.body)
-        .then(newProduct => res.json(newProduct))
-        .catch(err => res.json(err))
+        .then(newProduct => res.json(newProduct)) // SUCCESSFUL CREATION 
+        .catch(err => {
+            console.log(err)
+            res.status(400).json(err)
+        }) // UNSUCCESSFUL CREATION
 }
-
 // READ
 module.exports.allProducts = (req,res) => {
     Product.find()
@@ -25,9 +27,13 @@ module.exports.oneProduct = (req,res) => {
 }
 // UPDATE
 module.exports.updateProduct = (req, res) => {
-    Product.findOneAndUpdate({_id: req.params.product_id}, req.body, {new:true})
-        .then(updatedProduct => res.json(updatedProduct))
-        .catch(err => res.json(err))
+    // FIND ONE AND UPDATE TAKES THREE ARGUMENTS, QUERY, PAYLOAD, BOOLEAN
+    Product.findOneAndUpdate({_id: req.params.product_id}, req.body, {new:true, runValidators: true}) // RUN VALIDATOR MUST BE INCLUDED FOR UPDATE
+        .then(updatedProduct => res.json(updatedProduct)) // SUCCESSFUL CREATION
+        .catch(err => {
+            console.log(err)
+            res.status(400).json(err)
+        }) // UNSUCCESSFUL CREATION
 }
 // DELETE
 module.exports.deleteProduct = (req, res) => {

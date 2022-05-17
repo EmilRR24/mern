@@ -37,9 +37,11 @@ const Detail = () => {
                 <h1>Title: {product.title}</h1>
                 <h2>Price: {product.price}</h2>
                 <h2>Description: {product.description}</h2>
+                <div>
                 <Link to={"/" + product._id + "/edit"}>
                   Edit
                 </Link>
+                </div>
                 <button onClick={(e)=>{deleteHandler(product._id)}}>
                   Delete
                 </button>

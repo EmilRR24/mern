@@ -35,12 +35,14 @@ const Dashboard = (props) => {
             <Link to={"/" + product._id}>
             <h2>{product.title}</h2>
             </Link>
-            <Link to={"/" + product._id + "/edit"}>
-            <p>Edit</p>
-            </Link>
-            <button onClick={(e)=>{deleteHandler(product._id)}}>
-              Delete
-            </button>
+            <div>
+                <Link to={"/" + product._id + "/edit"}>
+                  Edit
+                </Link>
+                </div>
+                <button onClick={(e)=>{deleteHandler(product._id)}}>
+                  Delete
+                </button>
             </div>
           )})
         }

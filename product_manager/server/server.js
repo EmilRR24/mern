@@ -24,4 +24,4 @@ productRoutes(app)
 
 
 // 4. RUN YOUR EXPRESS SERVER
-app.listen(port, () => console.log(`EXPRESS SERVER RUNING ON ${port}`))
+app.listen(port, () => console.log(`LOCKED AND LOADED ${port}`))
