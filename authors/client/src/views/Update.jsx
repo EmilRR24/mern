@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
     
 const Update = (props) => {
   const { author_id } = useParams();
@@ -48,7 +48,11 @@ const Update = (props) => {
     
   return (
     <div style={{textAlign: 'center'}}>
-      <h1>Update a Author</h1>
+      <h1>Favorite Authors</h1>
+      <Link to={"/"}>
+      <h3>Home</h3>
+      </Link>
+      <h3>Edit this author:</h3>
       <form onSubmit={updateAuthor}>
         <p>
           <label>Author</label><br />
@@ -57,9 +61,12 @@ const Update = (props) => {
           value={name} 
           onChange={(e) => { setName(e.target.value) }} />
         </p>
-        {errorObj.author ? <p>{errorObj.author}</p> : null}
         <input type="Submit" />
       </form>
+        {errorObj.name ? <p>{errorObj.name}</p> : null}
+      <Link to={"/"}>
+      <button>Cancel</button>
+      </Link>
     </div>
   )
 }

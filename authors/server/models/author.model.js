@@ -6,8 +6,7 @@ const AuthorSchema = mongoose.Schema({
         type:String,
         // VALIDATIONS FOR STRINGS
         required:[true, "REQUIRES A NAME"],
-        minLength:[3, "NAME MUST BE LARGER THAN 3 CHARACTERS"],
-        maxLength:[50, "NAME MUST BE LESS THAN 50 CHARACTERS"]
+        minLength:[3, "NAME MUST BE LARGER THAN 3 CHARACTERS"]
     },
 }, {timestamps:true})
 

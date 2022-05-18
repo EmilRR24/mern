@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const New = () => {
   // DECLARE STATE
   const [name, setName] = useState("");
+  const [err, setErr] = useState([])
+  const [errorObj, setErrorObj] = useState({})
     // TRAVELS TO ANOTHER ROUTE
     const navigate = useNavigate()
 
@@ -22,11 +24,28 @@ const New = () => {
         console.log("NEWD");
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch(err =>{ 
+        console.log("ERROR FROM SERVER", err.response.data.errors)
+        const errorResponse= err.response.data.errors;
+        const errorArr = [];
+        const errorObj = {};
+        for (const key of Object.keys(errorResponse)) {
+          errorArr.push(errorResponse[key].message)
+          errorObj[key] = errorResponse[key].message
+        }
+        console.log(errorObj)
+        setErr(errorArr)
+        setErrorObj(errorObj)
+      })
   };
   return (
-    <fieldset>
+    <div style={{textAlign: 'center'}}>
       {/* <legend>New.jsx</legend> */}
+      <h1>Favorite Authors</h1>
+      <Link to={"/"}>
+      <h3>Home</h3>
+      </Link>
+      <h3>Add a new author:</h3>
       <form onSubmit={submitHandler}>
         <p>
           Name:
@@ -38,8 +57,12 @@ const New = () => {
           />
         </p>
         <button>New</button>
+        {errorObj.name ? <p>{errorObj.name}</p> : null}
       </form>
-    </fieldset>
+      <Link to={"/"}>
+      <button>Cancel</button>
+      </Link>
+    </div>
   );
 };
 
