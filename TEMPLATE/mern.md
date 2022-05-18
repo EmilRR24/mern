@@ -1,6 +1,6 @@
 # MERN Setup
 
-## Mongoose | MongoDB
+## Mongoose | MongoDB | Server
 1. Copy MongooseTemplate, rename to project title
 2. `cd` to project
 3. `npm init -y`; `npm i express mongoose cors`
