@@ -13,16 +13,18 @@ const Dashboard = (props) => {
         console.log(res.data)
         setAuthors(res.data);
       })
-      .catch(err => console.error(err));
+      .catch(err => console.log(err));
   },[refreshState]);
 
   const deleteHandler = (author_id) => {
     axios.delete('http://localhost:8000/api/authors/' + author_id)
+    // SUCCESSFUL RESPONSE
       .then(res=>{
         console.log("Deleted")
         refresh();
       })
-      .catch(err => console.error(err));
+      // UNSUCCESSFUL RESPONSE
+      .catch(err => console.log(err));
   }
 
   return (
@@ -44,14 +46,10 @@ const Dashboard = (props) => {
           return (
             <tr>
               <td key={index}>
-              <Link to={"/" + author._id}>
               <h2>{author.name}</h2>
-              </Link>
               </td>
               <td>
-                  <Link to={"/" + author._id + "/edit"}>
-                    <button>Edit</button> 
-                  </Link>
+                  <Link to={"/" + author._id + "/edit"}> <button>Edit</button> </Link>
                   <button onClick={(e)=>{deleteHandler(author._id)}}>
                     Delete
                   </button>

@@ -21,7 +21,7 @@ const New = () => {
     axios.post("http://localhost:8000/api/authors/new", authorObj)
       .then((res) => {
         console.log(res);
-        console.log("NEWD");
+        console.log("NEW");
         navigate("/");
       })
       .catch(err =>{ 

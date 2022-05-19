@@ -59,4 +59,21 @@ const expected3 = 0; // broccoli seeds key doesn't exist in available ingredient
  * @param {Ingredients} available
  * @returns {number} Max servings of the recipe that can be made.
  */
-function getMaxServings(recipe, available) { }
+ function getMaxServings(recipe, available) {
+  let min;
+  let result = 0;
+  for(key in recipe) {
+      result = Math.floor(available[key] / recipe[key])
+      if(min === undefined){
+          min = result
+      }
+      if(!available[key]){
+          return 0;
+      }
+      if(result != undefined && result < min){
+          min = result
+      }
+  }
+  return min;
+}
+console.log(getMaxServings(recipe1, available1));
