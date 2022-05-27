@@ -43,7 +43,7 @@ function rehash(s) {
                 ? ft[letter] += count
                 : ft[letter] = count}
     }
-    // Object.keys(ft).sort().forEach(key => retStr =${retStr}${key}${ft[key]});
+    // Object.keys(ft).sort().forEach(key => retStr =`${retStr}${key}${ft[key]}`);
     const keysArr= Object.keys(ft)
     keysArr.sort()
     keysArr.forEach(key =>{
